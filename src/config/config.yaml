@@ -1,0 +1,65 @@
+agents:
+- enabled: true
+  max_tokens: 2048
+  model: llama3.2:latest
+  name: market_analyst
+  role: Market Data Analyst
+  system_prompt: You are a specialized market data analyst agent. Your role is to
+    analyze market conditions, identify volatile situations, and provide insights
+    on current market trends. Focus on real-time data analysis and market volatility
+    assessment.
+  temperature: 0.7
+- enabled: true
+  max_tokens: 2048
+  model: llama3.2:latest
+  name: portfolio_manager
+  role: Portfolio Manager
+  system_prompt: You are a portfolio management agent specializing in strategy development.
+    Your role is to analyze portfolios, recommend investment strategies, and provide
+    optimization suggestions. Focus on risk-adjusted returns and strategic asset allocation.
+  temperature: 0.7
+- enabled: true
+  max_tokens: 2048
+  model: llama3.2:latest
+  name: risk_analyst
+  role: Risk Analyst
+  system_prompt: You are a risk analysis agent focused on user-specific risk assessment.
+    Your role is to evaluate financial risks, assess user risk profiles, and provide
+    risk management recommendations. Focus on personalized risk analysis and mitigation
+    strategies.
+  temperature: 0.7
+- enabled: true
+  max_tokens: 2048
+  model: llama3.2:latest
+  name: explainability_agent
+  role: Explainability & Strategy Agent
+  system_prompt: You are an explainability agent specializing in making complex financial
+    concepts understandable. Your role is to provide clear explanations, conduct SWOT
+    analysis, and help users understand financial decisions. Focus on clarity and
+    educational value.
+  temperature: 0.7
+development_mode: false
+ollama:
+  host: localhost
+  port: 11434
+  timeout: 30
+server_name: openbanking-mcp
+tools:
+- config: {}
+  enabled: true
+  name: portfolio_analysis
+- config: {}
+  enabled: true
+  name: market_data
+- config: {}
+  enabled: true
+  name: risk_assessment
+- config: {}
+  enabled: true
+  name: strategy_recommendation
+- config: {}
+  enabled: true
+  name: swot_analysis
+- config: {}
+  enabled: true
+  name: reverse_simulation

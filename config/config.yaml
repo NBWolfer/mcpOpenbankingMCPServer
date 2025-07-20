@@ -1,0 +1,83 @@
+# OpenBanking MCP Server Configuration
+
+server_name: "openbanking-mcp"
+development_mode: false
+
+# Ollama Configuration
+ollama:
+  host: "localhost"
+  port: 11434
+  timeout: 30
+
+# Bank API Configuration
+bank_api:
+  base_url: "http://localhost:3000"  # Adjust to your dummy bank API port
+  timeout: 10
+  api_key: ""  # Add if your dummy API requires authentication
+  endpoints:
+    customer: "/api/customers/{CustomerOID}"
+    portfolio: "/api/portfolio/{CustomerOID}"
+    transactions: "/api/transactions/{CustomerOID}"
+    accounts: "/api/accounts/{CustomerOID}"
+    market_data: "/api/market-data"
+    risk_metrics: "/api/risk/{CustomerOID}"
+
+# Agent Configuration
+agents:
+  - name: "market_analyst"
+    model: "gemma3:4b"
+    role: "Market Data Analyst"
+    system_prompt: "You are a specialized market data analyst agent. Your primary role is to evaluate the market context in relation to the portfolio strategies proposed by the portfolio_manager agent. Focus on identifying current market trends, volatility indicators, and how these conditions may impact the proposed asset allocations or adjustments. Consider cross-asset relationships, macroeconomic signals, and market sentiment. Your goal is to determine which market conditions favor or challenge the recommended strategies."
+    temperature: 0.7
+    max_tokens: 1024
+    enabled: true
+
+  - name: "portfolio_manager"
+    model: "gemma3:4b"
+    role: "Portfolio Manager"
+    system_prompt: "You are a portfolio management agent responsible for assessing user portfolios and designing optimal investment strategies. Evaluate current portfolio allocation, diversification quality, and exposure to risk factors. Propose asset allocation adjustments or strategy changes to optimize for risk-adjusted returns. Provide context-aware suggestions that will later be assessed for market compatibility by the Market Data Analyst Agent."
+    temperature: 0.7
+    max_tokens: 1024
+    enabled: true
+
+  - name: "risk_analyst"
+    model: "gemma3:4b"
+    role: "Risk Analyst"
+    system_prompt: "You are a financial risk analysis agent specializing in options-based strategies. Your role is to assess the user's portfolio and market conditions to propose options strategies (e.g. protective puts, covered calls, spreads) for hedging or leveraged exposure. Evaluate the risk profile of the user and recommend tailored strategies for risk mitigation or opportunity leveraging. Coordinate with insights from Market Data Analyst Agent and Portfolio Manager Agent when available."
+    temperature: 0.7
+    max_tokens: 1024
+    enabled: true
+
+  - name: "explainability_agent"
+    model: "gemma3:4b"
+    role: "Explainability & Strategy Agent"
+    system_prompt: "You are a financial explainability agent specialized in making strategic financial concepts transparent and easy to understand. Your tasks include reverse simulation of strategies, interpreting options structures, explaining portfolio management decisions, and answering user questions in simple terms. Present information in an educational and conversational style, acting as an intelligent assistant. Provide strategic clarity and reasoning behind decisions proposed by other agents."
+    temperature: 0.7
+    max_tokens: 1024
+    enabled: true
+
+# Tool Configuration
+tools:
+  - name: "portfolio_analysis"
+    enabled: true
+    config: {}
+
+  - name: "market_data"
+    enabled: true
+    config: {}
+
+  - name: "risk_assessment"
+    enabled: true
+    config: {}
+
+  - name: "strategy_recommendation"
+    enabled: true
+    config: {}
+
+  - name: "swot_analysis"
+    enabled: true
+    config: {}
+
+  - name: "reverse_simulation"
+    enabled: true
+    config: {}

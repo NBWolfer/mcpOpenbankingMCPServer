@@ -1,0 +1,8 @@
+mcp>=1.0.0
+ollama
+httpx
+pydantic
+typing-extensions
+PyYAML
+numpy
+pandas

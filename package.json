@@ -1,0 +1,24 @@
+{
+  "name": "openbanking-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP Server for OpenBanking with Ollama LLM integration",
+  "main": "src/main.py",
+  "scripts": {
+    "start": "python src/main.py",
+    "dev": "python src/main.py --dev"
+  },
+  "dependencies": {
+    "mcp": "^1.0.0",
+    "ollama": "*",
+    "httpx": "*",
+    "pydantic": "*"
+  },
+  "keywords": [
+    "mcp",
+    "ollama",
+    "openbanking",
+    "llm"
+  ],
+  "author": "Enes",
+  "license": "MIT"
+}
