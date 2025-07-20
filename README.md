@@ -178,7 +178,7 @@ ollama:
 # Agents configuration
 agents:
   - name: "market_analyst"
-    model: "llama3.2:latest"
+    model: "gemma3:4b"
     role: "Market Data Analyst"
     # ... more config
 
