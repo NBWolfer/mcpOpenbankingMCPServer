@@ -1,7 +1,7 @@
 agents:
 - enabled: true
   max_tokens: 2048
-  model: llama3.2:latest
+  model: gemma3:4b
   name: market_analyst
   role: Market Data Analyst
   system_prompt: You are a specialized market data analyst agent. Your role is to
@@ -11,7 +11,7 @@ agents:
   temperature: 0.7
 - enabled: true
   max_tokens: 2048
-  model: llama3.2:latest
+  model: gemma3:4b
   name: portfolio_manager
   role: Portfolio Manager
   system_prompt: You are a portfolio management agent specializing in strategy development.
@@ -20,7 +20,7 @@ agents:
   temperature: 0.7
 - enabled: true
   max_tokens: 2048
-  model: llama3.2:latest
+  model: gemma3:4b
   name: risk_analyst
   role: Risk Analyst
   system_prompt: You are a risk analysis agent focused on user-specific risk assessment.
@@ -30,7 +30,7 @@ agents:
   temperature: 0.7
 - enabled: true
   max_tokens: 2048
-  model: llama3.2:latest
+  model: gemma3:4b
   name: explainability_agent
   role: Explainability & Strategy Agent
   system_prompt: You are an explainability agent specializing in making complex financial
